@@ -25,7 +25,8 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list.id)
     else
-      render :new
+      @lists = List.all
+      render :index #<= new から indexに変更
     end
   end
 
